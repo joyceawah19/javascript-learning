@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calcul.css">
+</head>
+<body>
+    <h3>CALCULATOR</h3>
+    <script src="calcul.js"></script>
+    <div class="container">
+    <form action="" name="form">
+       <input class="textviewer" id="textviewer" type="text"  ></input>
+    </form>
+    <table>
+        <label for=""></label>
+        <tr>
+          <td><input class="btn" type="button"  value="c" onclick="clear()"></td>   
+          <td><input class="btn" type="button"  value="B" onclick="deleted()"></td> 
+          <td><input class="btn" type="button"  value="/" onclick="insert('/')"></td> 
+          <td><input class="btn" type="button"  value="*" onclick="insert('*')"></td>
+        </tr>
+        <tr>
+            <td><input class="btn" type="button"  value="7" onclick="insert('7')"></td>   
+            <td><input class="btn" type="button"  value="8" onclick="insert('8')"></td> 
+            <td><input class="btn" type="button"  value="9" onclick="insert('9')"></td> 
+            <td><input class="btn" type="button"  value="-" onclick="insert('-')"></td>
+       </tr>
+        <tr>
+            <td><input class="btn" type="button"  value="4" onclick="insert('4')"></td> 
+            <td><input class="btn" type="button"  value="5" onclick="insert('5')"></td> 
+            <td><input class="btn" type="button"  value="6" onclick="insert('6')"></td> 
+            <td><input class="btn" type="button"  value="+" onclick="insert('+')"></td> 
+        </tr>
+        <tr>
+            <td><input class="btn" type="button"  value="3" onclick="insert('3')"></td> 
+            <td><input class="btn" type="button"  value="2" onclick="insert('2')"></td> 
+            <td><input class="btn" type="button"  value="1" onclick="insert('1')"></td> 
+            <td rowspan="2"><input class="btn" type="button" style="height: 110px;" value="=" onclick="equal()"></td> 
+        </tr>
+        <tr>
+            <td ><input class="btn" type="button"  value="0" onclick="insert('0')"></td> 
+            <td ><input class="btn" type="button"  value="%" onclick="insert('%')"></td> 
+            <td ><input class="btn" type="button"  value="." onclick="insert('')"></td> 
+           
+        </tr>
+            
+    </table>
+</div>
+
+
+
+
+<script>
+    let textviewer = document.getElementById('textviewer');
+console.log(textviewer);
+
+function insert(value){
+textviewer.value += value;
+}
+
+function clear(){
+ textviewer.value = '';  
+}
+function equal(){
+    
+    try{
+        //split exp into nums and ops
+        let expression = textviewer.value.split(/([+\-*/])/).filter(Boolean);
+        let result = parseFloat(expression[0]);
+     
+    for( let i=1; i<expression.length; i+=2){
+        let operator = expression[i];
+        let nextnumber = parseFloat(expression[i+1]);
+
+       switch( operator){
+          case '+':
+            result += nextnumber;
+            break;
+          case '-':
+            result -= nextnumber;
+            break;
+          case '*':
+            result *= nextnumber;  
+            break;
+          case '*':
+            result *= nextnumber;  
+            break;
+       }
+    }
+    textviewer.value = result;
+
+    }catch(error){
+       textviewer.value = 'error'
+    }
+}
+</script>
+</body>
+</html>
