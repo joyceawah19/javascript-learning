@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Simple Quiz</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. What is the capital of France?</p>
+            <label><input type="radio" name="q1" value="0"> Berlin</label><br>
+            <label><input type="radio" name="q1" value="1"> Paris</label><br>
+            <label><input type="radio" name="q1" value="0"> Madrid</label><br>
+        </div>
+
+        <div class="question">
+            <p>2. What is 2 + 2?</p>
+            <label><input type="radio" name="q2" value="0"> 3</label><br>
+            <label><input type="radio" name="q2" value="1"> 4</label><br>
+            <label><input type="radio" name="q2" value="0"> 5</label><br>
+        </div>
+
+        <div class="question">
+            <p>3. What is the color of the sky?</p>
+            <label><input type="radio" name="q3" value="0"> Green</label><br>
+            <label><input type="radio" name="q3" value="1"> Blue</label><br>
+            <label><input type="radio" name="q3" value="0"> Yellow</label><br>
+        </div>
+
+        <button type="button" onclick="calculateScore()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+
+function calculateScore() {
+    const questions = document.querySelectorAll('.question');
+    let score = 0;
+
+    questions.forEach((question) => {
+        const selectedAnswer = question.querySelector('input[type="radio"]:checked');
+        if (selectedAnswer) {
+            score += parseInt(selectedAnswer.value);
+        }
+    });
+
+    // Display the result
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `Your score is: ${score} out of ${questions.length}`;
+}
+</script>
+
+
+<style>
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    
+    .question {
+        margin-bottom: 20px;
+    }
+    
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+    }
+    </style>
+    
+    
