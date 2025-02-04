@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2> QUIZZ TEST</h2>
+    <form style="border: 2px solid red; " id="form">
+    
+   <div class="question">
+        <p id="nn">3. which language is not used for Web language:</p>
+        <label><input type="radio" id="wrong" name="fav_language" value="0">  HTML</label>
+      
+      <label><input type="radio" id="wrong" name="fav_language" value="0">CSS</label>
+      
+        <label><input type="radio" id="correct" name="fav_language" value="1">C</label>
+      
+    </div>
+     
+    <div class="question"><P>3. How many days are there in a week:</P>
+        <label><input type="radio" id="wrong" name="age" value="0">2</label>
+        <label><input type="radio" id="wrong" name="age" value="0">5</label>   
+        <label><input type="radio" id="correct" name="age" value="1">7</label>
+        
+    </div>
+        
+    <div class="question"><p>3. How many books are there in the bible?:</p>
+        <label><input type="radio" id="correct" name="books" value="1">66</label>
+        <label><input type="radio" id="wrong" name="books" value="0">57</label>   
+       <label><input type="radio" id="wrong" name="books" value="0">67</label>
+    </div>
+
+        <button type="button" onclick="totalscore();"  id="submit">submit</button>
+        <div id="result"></div>
+      </form>
+      
+      <script src="quest.js">
+      </script>
+</body>
+</html>
+    
